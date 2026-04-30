@@ -44,14 +44,14 @@ public class Main {
         boolean encontrado = false;
 
         for (int i = 0; i < livros.length; i++){
-            if(livros[i].equals(buscar)){
+            if (livros[i].equals(buscar)){
                 System.out.println("Livro \"" + buscar + "\" encontrado na posição " + (i+1) + ".");
                 encontrado = true;
                 break;
             }
         }
 
-        if (!encontrado){
+        if(!encontrado){
             System.out.println("Livro \"" + buscar + "\" não encontrado.");
         }
 
