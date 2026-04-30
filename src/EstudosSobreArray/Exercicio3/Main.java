@@ -38,19 +38,20 @@ public class Main {
 
         imprimirLista(livros);
 
-        System.out.println("\nBuscar livro: ");
+        System.out.print("\nBuscar livro: ");
         String buscar = inserir.nextLine();
+
         boolean encontrado = false;
 
-        for (int i = 0; i < livros.length; i ++){
-            if (livros[i].equalsIgnoreCase(buscar)){
-                System.out.println("Livro \"" + buscar + "\" encontrado na posição " + (i+1));
+        for(int i = 0; i < livros.length; i++){
+            if (livros[i].equals(buscar)){
+                System.out.println("Livro \"" + buscar + "\" encontrado na posição " + (i+1) + ".");
                 encontrado = true;
                 break;
             }
         }
 
-        if (!encontrado){
+        if(!encontrado){
             System.out.println("Livro \"" + buscar + "\" não encontrado.");
         }
 
