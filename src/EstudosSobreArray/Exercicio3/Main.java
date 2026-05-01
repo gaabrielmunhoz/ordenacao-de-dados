@@ -38,7 +38,7 @@ public class Main {
 
         imprimirLista(livros);
 
-        System.out.print("\nBuscar livro: ");
+        System.out.println("\nBuscar livro: ");
         String buscar = inserir.nextLine();
 
         boolean encontrado = false;
@@ -51,10 +51,11 @@ public class Main {
             }
         }
 
-        if(!encontrado){
+        if (!encontrado){
             System.out.println("Livro \"" + buscar + "\" não encontrado.");
         }
 
         inserir.close();
+
     }
 }
