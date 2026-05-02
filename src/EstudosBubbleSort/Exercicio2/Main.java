@@ -9,8 +9,6 @@ package EstudosBubbleSort.Exercicio2;
 //  Total de comparações: X
 //  👉 Objetivo: entender custo do algoritmo;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class Main {
     public static String[] bubbleSort(String[] arr) {
         String[] copia = arr.clone();
