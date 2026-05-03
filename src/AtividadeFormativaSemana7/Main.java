@@ -111,10 +111,10 @@ public class Main {
 
         if (encontrouDFS) {
             System.out.println("\nLivro \"" + buscar + "\" encontrado.");
-            System.out.println("Tempo que o DFS levou: " + tempoDFS + " ms.\n");
         } else {
             System.out.println("\nLivro \"" + buscar + "\" não encontrado.\n");
         }
+        System.out.println("Tempo que o DFS levou: " + tempoDFS + " ms.\n");
 
         System.out.println("Busca por BFS:");
         long inicioBFS = System.currentTimeMillis();
@@ -126,10 +126,10 @@ public class Main {
 
         if (encontrouBFS) {
             System.out.println("\nLivro \"" + buscar + "\" encontrado.");
-            System.out.println("Tempo que o BFS levou: " + tempoBFS + " ms.\n");
         } else {
             System.out.println("\nLivro \"" + buscar + "\" não encontrado.");
         }
+        System.out.println("Tempo que o BFS levou: " + tempoBFS + " ms.\n");
 
         scanner.close();
 
