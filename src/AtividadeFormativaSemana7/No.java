@@ -2,13 +2,13 @@ package AtividadeFormativaSemana7;
 
 public class No {
     Livro livro;
-    No filhoEsquerdo;
-    No filhoDireito;
+    No esquerda;
+    No direita;
 
     public No(Livro livro){
         this.livro = livro;
-        this.filhoEsquerdo = null;
-        this.filhoDireito = null;
+        this.esquerda = null;
+        this.direita = null;
     }
 
 }
