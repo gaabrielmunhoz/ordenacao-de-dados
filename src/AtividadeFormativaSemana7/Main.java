@@ -131,6 +131,8 @@ public class Main {
             System.out.println("\nLivro \"" + buscar + "\" não encontrado.");
         }
 
+        scanner.close();
+
     }
 
 }
