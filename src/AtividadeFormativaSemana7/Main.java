@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 class DFS {
-    public static boolean buscarLivro(No no, String tituloBuscado) {
+    public static boolean buscaDFS(No no, String tituloBuscado) {
         if (no == null) {
             return false;
         }
@@ -25,11 +25,11 @@ class DFS {
             return true;
         }
 
-        if (buscarLivro(no.esquerda, tituloBuscado)){
+        if (buscaDFS(no.esquerda, tituloBuscado)){
             return true;
         }
 
-        if (buscarLivro(no.direita, tituloBuscado)){
+        if (buscaDFS(no.direita, tituloBuscado)){
             return true;
         }
 
@@ -38,9 +38,9 @@ class DFS {
 }
 
 class BFS {
-    public static void percorrerArvore(No raiz) {
+    public static boolean buscaBFS(No raiz, String tituloBuscado) {
         if (raiz == null) {
-            return;
+            return false;
         }
 
         Queue<No> fila = new LinkedList<>();
@@ -49,6 +49,12 @@ class BFS {
         while (!fila.isEmpty()) {
             No no = fila.poll();
 
+            System.out.println("BFS passou por: " + no.livro.getTitulo());
+
+            if (no.livro.getTitulo().equalsIgnoreCase(tituloBuscado)){
+                return true;
+            }
+
             if (no.esquerda != null) {
                 fila.add(no.esquerda);
             }
@@ -56,20 +62,11 @@ class BFS {
                 fila.add(no.direita);
             }
         }
+        return false;
     }
 }
 
 public class Main {
-
-    public static void imprimir(No no) {
-        if (no == null){
-            return;
-        }
-
-        System.out.println(no.livro.getTitulo());
-        imprimir(no.esquerda);
-        imprimir(no.direita);
-    }
 
     public static void main(String[] args) {
 
@@ -102,11 +99,34 @@ public class Main {
         System.out.print("Buscar livro: ");
         String buscar = scanner.nextLine();
         buscar = buscar.trim();
+        System.out.println();
 
-        boolean encontrou = DFS.buscarLivro(raiz, buscar);
+        System.out.println("Busca por DFS:");
+        long inicioDFS = System.currentTimeMillis();
 
-        if (encontrou) {
+        boolean encontrouDFS = DFS.buscaDFS(raiz, buscar);
+
+        long fimDFS = System.currentTimeMillis();
+        long tempoDFS = fimDFS - inicioDFS;
+
+        if (encontrouDFS) {
             System.out.println("\nLivro \"" + buscar + "\" encontrado.");
+            System.out.println("Tempo que o DFS levou: " + tempoDFS + " ms.\n");
+        } else {
+            System.out.println("\nLivro \"" + buscar + "\" não encontrado.\n");
+        }
+
+        System.out.println("Busca por BFS:");
+        long inicioBFS = System.currentTimeMillis();
+
+        boolean encontrouBFS = BFS.buscaBFS(raiz, buscar);
+
+        long fimBFS = System.currentTimeMillis();
+        long tempoBFS = fimBFS - inicioBFS;
+
+        if (encontrouBFS) {
+            System.out.println("\nLivro \"" + buscar + "\" encontrado.");
+            System.out.println("Tempo que o BFS levou: " + tempoBFS + " ms.\n");
         } else {
             System.out.println("\nLivro \"" + buscar + "\" não encontrado.");
         }
